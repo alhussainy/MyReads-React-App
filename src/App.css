@@ -1,0 +1,214 @@
+html {
+  box-sizing: border-box;
+}
+body {
+  min-height: 100vh;
+  background-image: linear-gradient(to top, #8fd3f4 0%, #a6c1ee 100%);
+}
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: inherit;
+}
+header h1.main-header {
+  background-color: #fbfbfb;
+  box-shadow: 0 -5px 5px #202020;
+  text-align: center;
+  padding: 0.5em;
+}
+section.list-container {
+  padding: 2vh 0;
+}
+section.list-container > h3 {
+  display: inline-block;
+  position: relative;
+  margin: 20px 0;
+  padding: 10px;
+  color: #202020;
+  border-left: 2px solid #202020;
+  overflow: hidden;
+  transition: all ease-in-out 500ms;
+}
+
+section.list-container > h3:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: #202020;
+  top: 0;
+  left: -100%;
+  z-index: -1;
+  transition: all ease-in-out 500ms;
+}
+
+section.list-container:hover > h3 {
+  color: #fbfbfb;
+}
+section.list-container:hover > h3:after {
+  left: 0;
+}
+
+ol.list-of-books {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: stretch;
+  justify-content: space-around;
+  padding: 0 5vw;
+  list-style-type: none;
+}
+
+ol.list-of-books li.bookCard-container {
+  flex: 0 1 20vw;
+  margin-bottom: 20px;
+}
+ol.list-of-books li.bookCard-container div.bookCard {
+  background: #fbfbfb;
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 6px;
+  transition: all ease-in-out 500ms;
+  cursor: pointer;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+
+  /* box-shadow: -3px -5px 3px #20202050; */
+}
+
+ol.list-of-books li.bookCard-container div.bookCard select {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+  border: none;
+}
+ol.list-of-books li.bookCard-container div.bookCard div.poster {
+  min-height: 30vh;
+  width: 100%;
+  border-radius: 6px 6px 0 0;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
+}
+ol.list-of-books li.bookCard-container div.bookCard div.poster.not-found {
+  background-image: url("img-not-found.png");
+}
+ol.list-of-books li.bookCard-container div.bookCard p.book-title {
+  position: absolute;
+  width: 100%;
+  top: 20vh;
+  font-size: 1.2rem;
+  height: 10vh;
+  background: rgba(0, 0, 0, 0.8);
+  color: #fbfbfb;
+  text-align: left;
+  padding: 5px 3px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+ol.list-of-books li.bookCard-container div.bookCard p.authors {
+  padding: 5px;
+  background: #fbfbfb;
+}
+div.wait {
+  position: fixed;
+  min-height: 100%;
+  min-width: 100%;
+  z-index: 2;
+  background: #fbfbfb;
+  top: 0;
+  left: 0;
+  background-image: url("./wait.gif");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 10vw;
+}
+span.alert {
+  background: #ff0e0e;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  font-size: 0.8em;
+}
+div.search-container {
+  display: flex;
+  justify-content: start;
+  align-content: flex-start;
+}
+div.search-container a.back-link {
+  color: #fbfbfb;
+  padding: 10px;
+  font-size: 1.5em;
+
+  background-image: linear-gradient(to top, #1a1a1a 0%, #1d1d1d 100%);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  text-align: center;
+  cursor: pointer;
+}
+div.search-container .search-input {
+  flex: 1 0 auto;
+  outline: none;
+  border: none;
+  color: 212121;
+  border-top: 2px solid #212121;
+  border-bottom: 2px solid #212121;
+  font-size: 1.2em;
+  transition: all ease-in-out 300ms;
+}
+div.search-container .search-input:focus {
+  border-color: #286ee7;
+}
+div.LoadingBook {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgb(211, 207, 206);
+  z-index: 2;
+}
+div.LoadingBook::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 100%;
+
+  background: #212121;
+  z-index: 2;
+  animation: loading 1s ease-in-out infinite alternate;
+}
+@keyframes loading {
+  0% {
+    opacity: 0.1;
+  }
+  100% {
+    opacity: 0.5;
+  }
+}
+
+.Search-link {
+  position: sticky;
+  top: 90%;
+  left: 95%;
+  z-index: 4;
+  width: 5%;
+  height: 5%;
+  color: #fbfbfb;
+  padding: 10px;
+  font-size: 1.5em;
+  border-radius: 5px;
+  background-image: linear-gradient(to top, #68c8f8 0%, #286ee7 100%);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px,
+    rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
