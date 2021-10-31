@@ -5,12 +5,12 @@ this project is using Udacity API to get the data of the books and update them a
 
 ## Table of Contents
 
-- [Instalaion](#Installation)
+- [Installation](#Installation)
 - [Technologies](#Technologies)
 - [Frontend-Server](#Frontend-Server)
 - [Backend-Server](#Backend-Server)
 
-## Instalaion
+## Installation
 
 - install all project dependencies with `npm install`
 - start the development server with `npm start`
