@@ -9,7 +9,7 @@ this project is using Udacity API to get the data of the books and update them a
 - [Technologies](#Technologies)
 - [Frontend-Server](#Frontend-Server)
 - [Backend-Server](#Backend-Server)
-
+- [Demo] (#Demo)
 ## Installation
 
 - install all project dependencies with `npm install`
@@ -76,3 +76,6 @@ search(query);
 - query: `<String>`
 - Returns a Promise which resolves to a JSON object containing a collection of a maximum of 20 book objects.
 - These books do not know which shelf they are on. They are raw results only. You'll need to make sure that books have the correct state while on the search page.
+
+### Demo
+you can check the demo website on netlify.com on [this link](https://zealous-shaw-6f930e.netlify.app/ )
